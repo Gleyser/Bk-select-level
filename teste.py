@@ -2,7 +2,7 @@
 # Como estou usando o Python 3.6.4 devo usar o BeautifulSoup 4.4.6 (usei versões anteriores e não funcionou)
 
 from bs4 import BeautifulSoup
-arquivo = "ALTERAR O NOME DO ARQUIVO"
+arquivo = "Canopus.html"
 ref_arquivo = open(arquivo,"r")
 arquivoLido = ref_arquivo.read()
 soup = BeautifulSoup(arquivoLido, 'html.parser')
@@ -48,7 +48,28 @@ resultadofinal = []
 for i in range(len(resultados)):
 	selecao = resultados[i] + niveis_intermediario[i]
 	resultadofinal.append(selecao)
-	
-print (resultadofinal)
+
+#print (resultadofinal)
+contador = 0
+soma = ""
+nomeDoJogador = "Canopus"
+
+for linha in resultadofinal:		
+	dia = int(linha[0:2])
+	if (dia <= 10):
+		linhaSplit = linha.split(",")		
+		if (linhaSplit[2] == nomeDoJogador):
+			#print (linhaSplit)
+			nivelAtacante = int(linhaSplit[5])
+			nivelDefensor = int(linhaSplit[6])
+			diferenca = nivelDefensor - nivelAtacante
+			if (diferenca >0):
+				print (linhaSplit)
+				soma += " + " + str(diferenca)
+				contador += diferenca
+
+print ("Todos os pontos obtidos" + soma)
+print ("Pontuação Final: " + str(contador))
+			
 	
 
