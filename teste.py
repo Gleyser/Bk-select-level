@@ -2,7 +2,7 @@
 # Como estou usando o Python 3.6.4 devo usar o BeautifulSoup 4.4.6 (usei versões anteriores e não funcionou)
 
 from bs4 import BeautifulSoup
-arquivo = "Canopus.html"
+arquivo = "x.html"
 ref_arquivo = open(arquivo,"r")
 arquivoLido = ref_arquivo.read()
 soup = BeautifulSoup(arquivoLido, 'html.parser')
@@ -52,7 +52,7 @@ for i in range(len(resultados)):
 #print (resultadofinal)
 contador = 0
 soma = ""
-nomeDoJogador = "Canopus"
+nomeDoJogador = "x"
 
 for linha in resultadofinal:		
 	dia = int(linha[0:2])
